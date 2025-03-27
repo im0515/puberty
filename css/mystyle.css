@@ -1,0 +1,593 @@
+@charset "utf8";
+/* font1 */
+@font-face{
+	font-family:"cinecaption";
+	src:url("../font/cinecaption227.TTF") format("truetype");
+}
+*{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+header{
+    position: sticky;
+    z-index: 10;
+    position: fixed;
+    top: 0; /* 上部から配置の基準位置を決める */
+    left: 0; /* 左から配置の基準位置を決める */
+    width: 100%; /* ヘッダーの横幅を指定する */
+    height: 35px; /* ヘッダーの高さを指定する */
+}
+header h1{
+    font-family: "Imbue", serif;
+    font-optical-sizing: auto;
+    font-size: 40px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-shadow:1px 1px 0 #000, -1px -1px 0 #000,
+                -1px 1px 0 #000, 1px -1px 0 #000,
+                0px 1px 0 #000,  0-1px 0 #000,
+                -1px 0 0 #000, 1px 0 0 #000;
+    margin: 5px 10px;
+}
+.contents {
+    width: 100%; /* コンテンツの横幅を指定する */
+    overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
+}
+.cart{
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    text-shadow:1px 1px 0 #000, -1px -1px 0 #000,
+                -1px 1px 0 #000, 1px -1px 0 #000,
+                0px 1px 0 #000,  0-1px 0 #000,
+                -1px 0 0 #000, 1px 0 0 #000;
+}
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+#menu-btn-check {
+    display: none;
+}
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: rgba(0,0,0,0.5);
+}
+.menu-content ul {
+    padding: 70px 10px 0;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+}
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: rgba(0,0,0,0.5);
+    transition: all 0.5s;/*アニメーション設定*/
+}
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;/*メニューを画面内へ*/
+}
+ul li,a{
+    font-family: "IM Fell Great Primer", serif;
+    font-weight: 100;
+}
+article{
+    background-color: #9F2323;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+main img{
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+main h1{
+    color: #BF3E40;
+    position: absolute;
+    top: 200px;
+    left: 45px;
+    font-family: "Imbue", serif;
+    font-optical-sizing: auto;
+    font-size: 30vw;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 8px;
+}
+.sab-main-img{
+    width: 1500px;
+    height: 200px;
+}
+.sab-main-h1{
+    color: #fff;
+    font-family: "Bokor", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 96px;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%);
+    text-shadow:1px 1px 0 #000, -1px -1px 0 #000,
+                -1px 1px 0 #000, 1px -1px 0 #000,
+                0px 1px 0 #000,  0-1px 0 #000,
+                -1px 0 0 #000, 1px 0 0 #000;
+}
+.sab-main-h2{
+    font-family: "Bokor", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+}
+/* shop */
+.sab-shop{
+    margin-bottom: 100px;
+}
+.shop-menu{
+    text-align:  center;
+    margin-bottom: 10px;
+}
+.shop-menu img{
+    display: inline;
+}
+.btn-sm{
+    padding: 3px 10px;
+    font-size: 13px;
+    margin: 0;
+    border-radius: 5px;
+    background-color: #000;
+}
+.btn-submit{
+    background-color: #4c586f;
+    border: 1px solid #4c586f;
+    color: #fff;
+}
+.item-form{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.item-form input{
+    width: 20px;
+    border: 1px solid #000;
+    color: #000;
+    text-align: center;
+}
+.shop-b{
+    margin-bottom: 100px;
+}
+/* 共通CSS */
+.btn-03{
+    border: 1px solid #000;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+/* cart */
+.cart-page{
+    background-color: #9F2323;
+}
+.cart-h1{
+    font-family:"Bokor", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 50px;
+    text-shadow:1px 1px 0 #000, -1px -1px 0 #000,
+                -1px 1px 0 #000, 1px -1px 0 #000,
+                0px 1px 0 #000,  0-1px 0 #000,
+                -1px 0 0 #000, 1px 0 0 #000;
+}
+.cart-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin:0 auto;
+}
+
+.text-right {
+    text-align: right;
+}
+.cart-table th,
+.cart-table td {
+        border: 1px solid #696969;
+        vertical-align: middle;
+        padding: 5px 10px;
+        background-color:#fff;
+        color:#000;
+        font-family:"Roboto", sans-serif;
+        font-weight: 400;
+}
+.cart-table th {
+        background-color: #000;
+        color: #fff;
+}
+.cart-table button {
+        margin: 0;
+}
+.total td{ 
+        text-align: center;
+}
+.cart-btn {
+        text-align: center;
+}
+.btn{
+    margin: 20px 3px;
+    padding: 2px 4px;
+}
+.btn-01{
+    background-color:#000;
+}
+.btn-02{
+    background-color:#E2E2E2;
+    color: #000;
+}
+/* pay */
+.pay-form {
+    background-color: #E2E2E2;
+    padding: 35px;
+    display: block;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 20px;
+    color: #000;
+}
+.form-group{
+    max-width: 400px;
+    width: 100%;
+    margin:0 auto;
+}
+.form-group label {
+    color: #000;
+    font-family:"Roboto", sans-serif;
+    font-weight: 400;
+    font-size:15px;
+    text-align: left;
+	display: block;
+    margin-bottom: -20px;
+    margin-top: 3px;
+}
+.form-group input{
+    width:400px;
+    color: #000;
+    text-align: left;
+}
+.form-title{
+    color: #000;
+    font-family:"Roboto", sans-serif;
+    font-weight: 400;
+    font-size:18px;
+    text-align: left;
+	display: block;
+}
+.form-information p{
+    color: #000;
+    font-family:"Roboto", sans-serif;
+    font-weight: 400;
+    font-size:14px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.confirmation{
+    color: #000;
+    font-family:"Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.sm-form {
+    width: 10%;
+}
+.payend-p p{
+    font-size: 20px;
+    font-family:"cinecaption";
+}
+.center{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+.btn-04{
+    margin-top: 30px;
+}
+/* about */
+.about{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+.about li{
+    display: block;
+}
+/* event */
+.event{
+    margin: 0 30px;
+}
+.event li{
+    margin-bottom: 20px;
+}
+/* aside */
+aside section{
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+section h2{
+    margin-bottom: 20px;
+}
+section h2,p{
+    text-align: center;
+    font-family: "IM Fell Great Primer", serif;
+    font-weight: 100;
+}
+section h2{
+    font-size: 48px;
+}
+section img{
+    display: block;
+    margin: 0 auto;
+}
+section p{
+    font-size: 40px;
+}
+section h3{
+    font-size: 46px;
+    line-height: 130%;
+    font-family: "Bokor", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 10px;
+}
+section li{
+    font-size: 20px;
+    font-family: "cinecaption", serif;
+    margin-left: 10px;
+}
+/*ベース*/
+.toggle {
+	display: none;
+}
+.Label {		/*タイトル*/
+	display: block;
+	color: #fff;
+}
+.Label::before{		/*タイトル横の矢印*/
+	content:"";
+	width: 6px;
+	height: 6px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	-webkit-transform: rotate(45deg);
+	position: absolute;
+	top:calc( 50% - 3px );
+	right: 20px;
+	transform: rotate(135deg);
+}
+.Label,
+.content {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	transition: all 0.3s;
+}
+.content {		/*本文*/
+	height: 0;
+	margin-bottom:10px;
+	padding:0 20px;
+	overflow: hidden;
+}
+.toggle:checked + .Label + .content {	/*開閉時*/
+	height: auto;
+	padding:20px ;
+	transition: all .3s;
+}
+.toggle:checked + .Label::before {
+	transform: rotate(-45deg) !important;
+}
+.place{
+    font-size: 70%;
+}
+.grid01{
+    display: grid;
+    grid-template-rows: auto; /*行のトラックの高さ*/
+    grid-template-columns: 1fr 1fr; /*列のトラックの幅*/
+    row-gap: 10px; /*行の隙間の高さ*/
+    column-gap: 30px; /*列の隙間の幅*/
+    place-content: center
+}
+.grid01 .item01{
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+.grid01 .item02{
+    grid-row: 1/2;
+    grid-column: 2/2;
+}
+.grid02{
+    display: grid;
+    grid-template-rows: auto; /*行のトラックの高さ*/
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*列のトラックの幅*/
+    row-gap: 15px; /*行の隙間の高さ*/
+    column-gap: 40px; /*列の隙間の幅*/
+    place-content: center;
+    margin-right: 10px;
+}
+.grid02 p{
+    border: #000 solid 1px;
+    margin-top: 5px;
+    color: #000;
+    font-size: 80%;
+}
+.grid02 li{
+    list-style: none;
+    background-color: #fff;
+    padding: 7px 7px;
+}
+footer{
+    background-color: #F5F5F5;
+    font-family: "IM Fell Great Primer", serif;
+    font-weight: 100;
+    display: flex;
+    padding: 10px 5px;
+}
+footer h1{
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 43px;
+}
+footer a,address{
+    color: #000;
+    font-size: 20px;
+}
+address{
+    margin-top: auto;
+    margin-left: auto;
+}
+
+@media (min-width:1000px){
+    main h1{
+        top: 320px;
+        left: 100px;
+    }
+    .grid01{
+        grid-template-columns: 500px 500px; /*列のトラックの幅*/
+    }
+    .grid02{
+        grid-template-columns: 150px 150px 150px 150px;
+    }
+    .grid03{
+        grid-template-columns: 150px 150px 150px 150px 150px 150px;
+    }
+}
+@media (max-width:700px){
+    main h1{
+        top: 150px;
+        left: 30px;
+    }
+}
+@media (max-width:650px){
+    /*cart*/
+    .cart-table {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .cart-table thead {
+        display: none;
+    }
+
+    .cart-table th,
+    .cart-table td {
+        border: none;
+        padding: 5px 10px;
+        text-align: left;
+    }
+
+    .cart-table td form {
+        text-align: right;
+        width: 90%;
+    }
+    .cart-table tbody th {
+        display: block;
+        text-align: center;
+    }
+
+    .cart-table tbody td::before {
+        content: attr(label);
+        float: left;
+        clear:both;
+        font-weight:bold;
+    }
+
+    .cart-table tr {
+        border: 1px solid #ebeced;
+    }
+
+    .cart-btn .btn{
+        margin-top: 20px;
+    }
+
+    .total td{
+        font-weight: bold;
+        text-align: center;
+        padding: 5px 0;
+    }
+    /* pay */
+
+    .sm-form {
+        width: 20%;
+    }
+}
